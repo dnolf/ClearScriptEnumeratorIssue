@@ -1,0 +1,26 @@
+HKCR
+{
+	CWI.NoShowHelper.1 = s 'CWINoShowHelper class'
+	{
+		CLSID = s '{c291ea12-6c4c-428e-aa90-b6e5309aaf39}'
+	}
+	CWI.NoShowHelper = s 'CWINoShowHelper class'
+	{		
+		CurVer = s 'CWI.NoShowHelper.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {c291ea12-6c4c-428e-aa90-b6e5309aaf39} = s 'CWINoShowHelper class'
+		{
+			ProgID = s 'CWI.NoShowHelper.1'
+			VersionIndependentProgID = s 'CWI.NoShowHelper'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			TypeLib = s '{7ae73476-5e57-4512-b583-f9dd99dd05e4}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,68 @@
+// Cwi.NoShow.Helper.idl : IDL source for Cwi.NoShow.Helper
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CwiNoShowHelper.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IChildList;
+
+[
+	object,
+	uuid(2d4e7c2c-662c-4728-bb29-073e45f0f815),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INoShowHelper : IDispatch
+{
+	[propget, id(1003), helpstring("ChildList")] HRESULT ChildList([out, retval]IChildList** ppChildList);
+};
+[
+	object,
+	uuid(d025bf32-cf54-482d-bc9d-4909961b35f1),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IChildList : IDispatch
+{
+	[propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), restricted] HRESULT _NewEnum([out, retval] LPUNKNOWN *pVal);
+	[propget, id(1000), helpstring("count")] HRESULT Count([out, retval]long* plCount);
+};
+[
+	object,
+	uuid(7d41cf83-8edd-4993-ad9f-e16b4192016d),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IChild : IDispatch
+{
+	[propget, id(1000), helpstring("id")] HRESULT Id([out, retval]long* plId);
+};
+[
+	uuid(7ae73476-5e57-4512-b583-f9dd99dd05e4),
+	version(1.0),
+]
+library CwiNoShowHelperLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(c291ea12-6c4c-428e-aa90-b6e5309aaf39)
+	]
+	coclass CWINoShowHelper
+	{
+		[default] interface INoShowHelper;
+	};
+
+	interface IChildList;
+	interface IChild;
+
+};
+
+import "shobjidl.idl";
+import "shobjidl.idl";
+import "shobjidl.idl";
